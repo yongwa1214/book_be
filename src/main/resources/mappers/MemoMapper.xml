@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.book.memo.MemoMapper">
+
+    <insert id="save">
+        INSERT INTO memo
+        SET library_id = #{libraryId}
+        ,title = #{title}
+        ,content = #{content}
+        ,type = #{type}
+    </insert>
+
+    <select id="myMemoList">
+        SELECT memo_id, title, type, created_at
+        FROM memo
+        WHERE library_id = #{libraryId}
+        ORDER BY type
+    </select>
+
+    <select id="MemoDetail">
+        SELECT title, content, type, created_at, updated_at
+        FROM memo
+        WHERE memo_id = #{memo_id}
+    </select>
+
+    <update id="updateMemo">
+        UPDATE memo
+        SET title = #{title}
+        ,content = #{content}
+        WHERE memo_id = #{memoId}
+    </update>
+
+    <delete id="deleteMemo">
+        DELETE memo
+        WHERE memo_id #{memoId}
+    </delete>
+
+
+
+
+</mapper>

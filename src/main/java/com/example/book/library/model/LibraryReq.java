@@ -9,9 +9,6 @@ import java.time.LocalDateTime;
 @Getter
 public class LibraryReq {
     private Integer memberId;
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
-    private int page;
     private String status;
     private String bookName;
 }

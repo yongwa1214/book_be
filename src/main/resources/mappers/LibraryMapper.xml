@@ -4,8 +4,6 @@
     <insert id="bookSave">
         INSERT INTO library
         SET member_id = #{memberId}
-        ,created_at = #{createdAt}
-        ,updated_at = #{updatedAt}
         ,page = #{page}
         ,status = #{status}
         ,book_name = #{bookName}
@@ -17,5 +15,13 @@
         ,page = #{page}
         ,status = #{status}
     </update>
+
+    <select id="myBookList">
+        SELECT library_id, book_name, status
+        FROM library
+        WHERE member_id = #{memberId}
+    </select>
+
+
 
 </mapper>

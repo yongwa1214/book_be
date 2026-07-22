@@ -1,7 +1,16 @@
 package com.example.book.library;
 
+import com.example.book.library.model.LibraryReq;
+import com.example.book.library.model.LibraryRes;
 import org.apache.ibatis.annotations.Mapper;
+
+import java.util.List;
 
 @Mapper
 public interface LibraryMapper {
+    void bookSave(LibraryReq req);
+
+    void bookUpdate(LibraryReq req);
+
+    List<LibraryRes> mybookList(Integer memberId);
 }
