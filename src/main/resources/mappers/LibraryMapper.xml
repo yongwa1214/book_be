@@ -11,4 +11,11 @@
         ,book_name = #{bookName}
     </insert>
 
+    <update id="bookUpdate">
+        UPDATE library
+        SET updated_at = #{updatedAt}
+        ,page = #{page}
+        ,status = #{status}
+    </update>
+
 </mapper>
