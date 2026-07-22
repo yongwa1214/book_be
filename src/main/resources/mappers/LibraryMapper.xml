@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.book.library.LibraryMapper">
+    <insert id="bookSave">
+        INSERT INTO library
+        SET member_id = #{memberId}
+        ,created_at = #{createdAt}
+        ,updated_at = #{updatedAt}
+        ,page = #{page}
+        ,status = #{status}
+        ,book_name = #{bookName}
+    </insert>
+
+</mapper>
