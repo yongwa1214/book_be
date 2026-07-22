@@ -4,7 +4,6 @@
     <insert id="bookSave">
         INSERT INTO library
         SET member_id = #{memberId}
-        ,page = #{page}
         ,status = #{status}
         ,book_name = #{bookName}
     </insert>
