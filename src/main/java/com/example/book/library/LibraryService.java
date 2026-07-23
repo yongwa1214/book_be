@@ -101,4 +101,8 @@ public class LibraryService {
     public void bookUpdate(LibraryReq req){
         libraryMapper.bookUpdate(req);
     }
+
+    public void deleteBook(Integer libraryId){
+        libraryMapper.deleteBook(libraryId);
+    }
 }

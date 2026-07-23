@@ -23,7 +23,7 @@ public class LibraryController {
     public ResponseEntity<?> saveBook(@RequestBody LibraryReq req, HttpServletRequest httpReq){
         Integer memberId =(Integer) HttpUtils.getSessionValue(httpReq, AccountConstants.MEMBER_ID_NAME);
         libraryService.bookSave(memberId, req);
-        return ResponseEntity.ok("good");
+        return ResponseEntity.ok().build();
     }
 
     @GetMapping("/search/book")
@@ -41,5 +41,17 @@ public class LibraryController {
     @GetMapping("my/book")
     public ResponseEntity<?> myBookItem(Integer id){
         return ResponseEntity.ok(libraryService.myBookItem(id));
+    }
+
+    @PutMapping("/my/book/item")
+    public ResponseEntity<?>bookUpdate(@RequestBody LibraryReq req){
+        libraryService.bookUpdate(req);
+        return ResponseEntity.ok().build();
+    }
+
+    @DeleteMapping("/remove")
+    public ResponseEntity<?>bookUpdate(Integer id){
+        libraryService.deleteBook(id);
+        return ResponseEntity.ok().build();
     }
 }
