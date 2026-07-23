@@ -38,21 +38,21 @@ public class LibraryController {
         return ResponseEntity.ok(libraryService.myBookList(memberId));
     }
 
-    @GetMapping("my/book") //id -> library_id
-    public ResponseEntity<?> myBookItem(Integer id){
-        return ResponseEntity.ok(libraryService.myBookItem(id));
+    @GetMapping("my/book/{libraryId}") //id -> library_id
+    public ResponseEntity<?> myBookItem(@PathVariable Long libraryId){
+        return ResponseEntity.ok(libraryService.myBookItem(libraryId));
     }
 
-    @PutMapping("/my/book/item")
+    @PutMapping("/my/book")
     public ResponseEntity<?>bookUpdate(@RequestBody LibraryReq req){
         libraryService.bookUpdate(req);
         return ResponseEntity.ok().build();
     }
 
-    @DeleteMapping("/remove")
-    public ResponseEntity<?>bookUpdate(Integer id,HttpServletRequest httpReq){
+    @DeleteMapping("/remove/{libraryId}")
+    public ResponseEntity<?>removeBook(@PathVariable Integer libraryId,HttpServletRequest httpReq){
         Integer memberId =(Integer) HttpUtils.getSessionValue(httpReq, AccountConstants.MEMBER_ID_NAME);
-        libraryService.deleteBook(id, memberId);
+        libraryService.deleteBook(libraryId, memberId);
         return ResponseEntity.ok().build();
     }
 }

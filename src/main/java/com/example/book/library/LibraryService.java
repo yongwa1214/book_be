@@ -90,7 +90,7 @@ public class LibraryService {
         return libraryMapper.myBookList(memberId);
     }
 
-    public LibraryItemRes myBookItem (Integer libraryId){
+    public LibraryItemRes myBookItem (Long libraryId){
         return libraryMapper.myBookItem(libraryId);
     }
 
