@@ -26,6 +26,9 @@ public class LibraryController {
         return ResponseEntity.ok("good");
     }
 
-    @GetMapping
-    public BookSearchList bookList(BookSearchReq searchReq){}
+    @GetMapping("/search/book")
+    public ResponseEntity<?> bookList(BookSearchReq searchReq){
+
+        return ResponseEntity.ok(libraryService.bookSearch(searchReq));
+    }
 }

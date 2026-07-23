@@ -12,8 +12,9 @@ import java.util.List;
 @Builder
 @Getter
 public class BookSearchList {
-    private List<BookSearchItem> results;
+    private Integer totalCount;
     private Integer page;
     private Integer size;
-    private Integer totalCount;
+    private List<BookSearchItem> results;
+
 }

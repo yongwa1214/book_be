@@ -1,11 +1,13 @@
 package com.example.book.library.model;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 
 import java.util.List;
 
 @AllArgsConstructor
+@Builder
 @Getter
 public class BookSearchItem {
     private String id;

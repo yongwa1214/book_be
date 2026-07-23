@@ -1,7 +1,6 @@
-package com.example.book.library.model;
+package com.example.book.library.model.googleBook;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 
 import java.util.List;
