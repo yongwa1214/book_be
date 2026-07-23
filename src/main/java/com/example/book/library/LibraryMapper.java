@@ -13,9 +13,9 @@ public interface LibraryMapper {
 
     void bookUpdate(LibraryReq req);
 
-    List<LibraryRes> mybookList(Integer memberId);
+    List<LibraryRes> myBookList(Integer memberId);
 
     LibraryItemRes myBookItem (Integer libraryId);
 
-    void deleteBook(Integer libraryId);
+    void deleteBook(Integer libraryId, Integer memberId);
 }

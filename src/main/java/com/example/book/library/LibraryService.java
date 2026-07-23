@@ -21,12 +21,8 @@ public class LibraryService {
 
 
     public void bookSave(Integer memberId, LibraryReq req){
-        LibraryReq dto = LibraryReq.builder()
-                .memberId(memberId)
-                .title(req.getTitle())
-                .status(req.getStatus())
-                .build();
-        libraryMapper.bookSave(dto);
+        req.setMemberId(memberId);
+        libraryMapper.bookSave(req);
     }
 
     public BookSearchList bookSearch (BookSearchReq searchReq){
@@ -91,7 +87,7 @@ public class LibraryService {
     }
 
     public List<LibraryRes> myBookList (Integer memberId){
-        return libraryMapper.mybookList(memberId);
+        return libraryMapper.myBookList(memberId);
     }
 
     public LibraryItemRes myBookItem (Integer libraryId){
@@ -102,7 +98,7 @@ public class LibraryService {
         libraryMapper.bookUpdate(req);
     }
 
-    public void deleteBook(Integer libraryId){
-        libraryMapper.deleteBook(libraryId);
+    public void deleteBook(Integer libraryId, Integer memberId){
+        libraryMapper.deleteBook(libraryId, memberId);
     }
 }

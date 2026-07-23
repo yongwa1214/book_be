@@ -4,14 +4,14 @@
     <insert id="bookSave">
         INSERT INTO library
         SET member_id = #{memberId}
-        ,book_id = #{id}
+        ,book_id = #{bookId}
         ,title = #{title}
         ,authors =#{authors}
         ,publisher = #{publisher}
         ,published_date = #{publishedDate}
         ,thumbnail = #{thumbnail}
-        ,summery = #{summery}
-        ,totalPage = #{totalPage}
+        ,summary = #{summary}
+        ,total_page = #{totalPage}
         ,status = #{status}
     </insert>
 
@@ -23,13 +23,13 @@
     </update>
 
     <select id="myBookList">
-        SELECT library_id, id, title, thumbnail, status
+        SELECT library_id, book_id, title, thumbnail, status
         FROM library
         WHERE member_id = #{memberId}
     </select>
 
     <select id ="myBookItem">
-        SELECT libraryId, id, title,authors,publisher
+        SELECT library_id, book_id, title,authors,publisher
                 ,published_date,thumbnail,summery
                 ,total_page, read_page,status
         FROM library
@@ -37,8 +37,8 @@
     </select>
 
     <delete id="deleteBook">
-        DELETE library
-        WHERE library_id #{libraryId} AND member_id =#{memberId}
+        DELETE FROM library
+        WHERE library_id = #{libraryId} AND member_id =#{memberId}
     </delete>
 
 </mapper>
