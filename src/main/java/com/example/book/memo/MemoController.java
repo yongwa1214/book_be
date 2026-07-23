@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 @Slf4j
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("bobo")
+@RequestMapping("api/bobo")
 public class MemoController {
     private final MemoService memoService;
 

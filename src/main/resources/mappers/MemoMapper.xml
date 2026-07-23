@@ -11,7 +11,7 @@
     </insert>
 
     <select id="myMemoList">
-        SELECT memo_id, title, type, created_at
+        SELECT memo_id, library_id, title, type, created_at
         FROM memo
         WHERE library_id = #{libraryId}
         ORDER BY type
@@ -31,8 +31,8 @@
     </update>
 
     <delete id="deleteMemo">
-        DELETE memo
-        WHERE memo_id #{memoId}
+        DELETE FROM memo
+        WHERE memo_id = #{memoId}
     </delete>
 
 

@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 @Slf4j
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("bobo")
+@RequestMapping("api/bobo")
 public class LibraryController {
     private final LibraryService libraryService;
 
