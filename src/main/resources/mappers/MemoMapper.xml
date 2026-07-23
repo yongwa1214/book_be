@@ -17,10 +17,10 @@
         ORDER BY type
     </select>
 
-    <select id="MemoDetail">
-        SELECT title, content, type, created_at, updated_at
+    <select id="memoDetail">
+        SELECT memo_id, title, content, type, created_at, updated_at
         FROM memo
-        WHERE memo_id = #{memo_id}
+        WHERE memo_id = #{memoId}
     </select>
 
     <update id="updateMemo">

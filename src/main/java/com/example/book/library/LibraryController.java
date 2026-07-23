@@ -31,4 +31,15 @@ public class LibraryController {
 
         return ResponseEntity.ok(libraryService.bookSearch(searchReq));
     }
+
+    @GetMapping("my/library")
+    public ResponseEntity<?> myBookList(HttpServletRequest httpReq){
+        Integer memberId =(Integer) HttpUtils.getSessionValue(httpReq, AccountConstants.MEMBER_ID_NAME);
+        return ResponseEntity.ok(libraryService.myBookList(memberId));
+    }
+
+    @GetMapping("my/book")
+    public ResponseEntity<?> myBookItem(Integer id){
+        return ResponseEntity.ok(libraryService.myBookItem(id));
+    }
 }

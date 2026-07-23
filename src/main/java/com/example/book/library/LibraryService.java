@@ -23,7 +23,7 @@ public class LibraryService {
     public void bookSave(Integer memberId, LibraryReq req){
         LibraryReq dto = LibraryReq.builder()
                 .memberId(memberId)
-                .bookName(req.getBookName())
+                .title(req.getTitle())
                 .status(req.getStatus())
                 .build();
         libraryMapper.bookSave(dto);
@@ -88,5 +88,17 @@ public class LibraryService {
             return null;
         }
         return volumeInfo.getImageLinks().getThumbnail();
+    }
+
+    public List<LibraryRes> myBookList (Integer memberId){
+        return libraryMapper.mybookList(memberId);
+    }
+
+    public LibraryItemRes myBookItem (Integer libraryId){
+        return libraryMapper.myBookItem(libraryId);
+    }
+
+    public void bookUpdate(LibraryReq req){
+        libraryMapper.bookUpdate(req);
     }
 }
