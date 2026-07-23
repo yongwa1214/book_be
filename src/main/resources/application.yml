@@ -14,3 +14,8 @@ mybatis:
   configuration:
     map-underscore-to-camel-case: true
   mapper-locations: mappers/**/*.xml
+
+google:
+  books:
+    api-key: AIzaSyDJEtarXIO2-Fmsiu6kWGvj7ZNBCqNk6Ew
+    base-url: https://www.googleapis.com/books/v1
