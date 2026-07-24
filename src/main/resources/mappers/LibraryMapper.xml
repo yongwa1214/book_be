@@ -12,7 +12,6 @@
         ,thumbnail = #{thumbnail}
         ,summary = #{summary}
         ,total_page = #{totalPage}
-        ,status = #{status}
     </insert>
 
     <update id="bookUpdate">

@@ -15,20 +15,20 @@ public class MemoController {
     private final MemoService memoService;
 
     @PostMapping("/save/memo")
-    public ResponseEntity<?> saveBook(@RequestBody MemoReq req){
+    public ResponseEntity<?> saveBookMemo(@RequestBody MemoReq req){
         memoService.save(req);
         return ResponseEntity.ok().build();
     }
 
-    @GetMapping("/memo/list")
-    public ResponseEntity<?> myMemoList(Integer id){
-        return ResponseEntity.ok(memoService.myMemoList(id));
+    @GetMapping("{libraryId}/memo/list")
+    public ResponseEntity<?> myMemoList(@PathVariable Integer libraryId){
+        return ResponseEntity.ok(memoService.myMemoList(libraryId));
     }
 
-    @GetMapping("/memo/detail")
-    public ResponseEntity<?> memoDetail(Integer id){ // memoId
+    @GetMapping("/memo/{memoId}")
+    public ResponseEntity<?> memoDetail(@PathVariable Integer memoId){ // memoId
 
-        return ResponseEntity.ok(memoService.memoDetail(id));
+        return ResponseEntity.ok(memoService.memoDetail(memoId));
     }
 
     @PutMapping("/re/memo")
@@ -37,9 +37,9 @@ public class MemoController {
         return ResponseEntity.ok().build();
     }
 
-    @DeleteMapping("de/memo")
-    public ResponseEntity<?> deleteMemo(Integer id){
-        memoService.deleteMemo(id);
+    @DeleteMapping("de/memo/{memoId}")
+    public ResponseEntity<?> deleteMemo(@PathVariable Integer memoId){
+        memoService.deleteMemo(memoId);
         return ResponseEntity.ok().build();
     }
 

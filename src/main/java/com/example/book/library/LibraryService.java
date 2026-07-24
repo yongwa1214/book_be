@@ -63,7 +63,7 @@ public class LibraryService {
                 .results(items)
                 .page(searchReq.getPage())
                 .size(Constants.MAX_PAGE)
-                .totalCount(res.getTotalItems())
+                .totalItems(res.getTotalItems())
                 .build();
 
 

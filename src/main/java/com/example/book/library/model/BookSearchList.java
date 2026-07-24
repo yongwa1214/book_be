@@ -12,7 +12,7 @@ import java.util.List;
 @Builder
 @Getter
 public class BookSearchList {
-    private Integer totalCount;
+    private Integer totalItems;
     private Integer page;
     private Integer size;
     private List<BookSearchItem> results;
