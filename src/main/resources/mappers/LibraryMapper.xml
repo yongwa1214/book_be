@@ -29,7 +29,7 @@
 
     <select id ="myBookItem">
         SELECT library_id, book_id, title,authors,publisher
-                ,published_date,thumbnail,summery
+                ,published_date,thumbnail,summary
                 ,total_page, read_page,status
         FROM library
         WHERE library_id = #{libraryId}

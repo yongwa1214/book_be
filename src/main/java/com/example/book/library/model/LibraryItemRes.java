@@ -13,7 +13,7 @@ public class LibraryItemRes {
     private String publisher;
     private String publishedDate;
     private String thumbnail;
-    private String summery;
+    private String summary;
     private Integer totalPage;
     private Integer readPage;
     private String status;

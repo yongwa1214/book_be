@@ -11,9 +11,9 @@
     </insert>
 
     <select id="myMemoList">
-        SELECT memo_id, library_id, title, type, created_at
+        SELECT memo_id, library_id, title, type, created_at, updated_at, content
         FROM memo
-        WHERE library_id = #{libraryId}
+        WHERE library_id = #{libraryId} AND type= #{type}
         ORDER BY type
     </select>
 

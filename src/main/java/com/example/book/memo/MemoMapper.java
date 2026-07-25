@@ -14,7 +14,7 @@ import java.util.List;
 public interface MemoMapper {
     void save (MemoReq req);
 
-    List<MemoListRes> myMemoList(Integer libraryId);
+    List<MemoListRes> myMemoList(Integer libraryId, String type);
 
     MemoDetailRes memoDetail(Integer memoId);
 
