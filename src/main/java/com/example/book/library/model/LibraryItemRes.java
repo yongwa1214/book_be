@@ -2,16 +2,19 @@ package com.example.book.library.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import org.springframework.cglib.core.Local;
-
-import java.time.LocalDateTime;
 
 @AllArgsConstructor
 @Getter
-public class LibraryRes {
+public class LibraryItemRes {
     private Integer libraryId;
     private String id; // book_id
     private String title;
+    private String authors;
+    private String publisher;
+    private String publishedDate;
     private String thumbnail;
+    private String summery;
+    private Integer totalPage;
+    private Integer readPage;
     private String status;
 }
