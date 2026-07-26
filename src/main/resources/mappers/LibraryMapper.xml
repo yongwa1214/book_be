@@ -21,6 +21,12 @@
         WHERE library_id = #{libraryId}
     </update>
 
+    <update id="bookStatus">
+        update library
+        SET status = #{status}
+        WHERE library_id = #{libraryId}
+    </update>
+
     <select id="myBookList">
         SELECT library_id, book_id, title, thumbnail, status
         FROM library
@@ -39,5 +45,7 @@
         DELETE FROM library
         WHERE library_id = #{libraryId} AND member_id =#{memberId}
     </delete>
+
+
 
 </mapper>

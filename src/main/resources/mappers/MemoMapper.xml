@@ -14,7 +14,7 @@
         SELECT memo_id, library_id, title, type, created_at, updated_at, content
         FROM memo
         WHERE library_id = #{libraryId} AND type= #{type}
-        ORDER BY type
+        ORDER BY type, memo_id DESC
     </select>
 
     <select id="memoDetail">
@@ -29,6 +29,8 @@
         ,content = #{content}
         WHERE memo_id = #{memoId}
     </update>
+
+
 
     <delete id="deleteMemo">
         DELETE FROM memo

@@ -9,6 +9,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public class MemoReq {
     private Integer libraryId;
+    private Integer memoId;
     private String title;
     private String content;
     private String type;
