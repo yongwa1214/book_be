@@ -19,8 +19,8 @@ public class MemoService {
         memoMapper.save(req);
     }
 
-    public List<MemoListRes> myMemoList(Integer libraryId){
-        return memoMapper.myMemoList(libraryId);
+    public List<MemoListRes> myMemoList(Integer libraryId, String type){
+        return memoMapper.myMemoList(libraryId, type);
     }
 
     public MemoDetailRes memoDetail (Integer memoId){

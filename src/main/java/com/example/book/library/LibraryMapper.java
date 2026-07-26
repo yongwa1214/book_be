@@ -17,5 +17,6 @@ public interface LibraryMapper {
 
     LibraryItemRes myBookItem (Long libraryId);
 
+    void bookStatus (Long libraryId, String status);
     void deleteBook(Integer libraryId, Integer memberId);
 }

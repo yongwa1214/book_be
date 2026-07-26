@@ -8,8 +8,8 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public class MemoReq {
-    private Integer memoId;
     private Integer libraryId;
+    private Integer memoId;
     private String title;
     private String content;
     private String type;

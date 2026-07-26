@@ -49,6 +49,12 @@ public class LibraryController {
         return ResponseEntity.ok().build();
     }
 
+    @PatchMapping("/my/status/{libraryId}")
+    public ResponseEntity<?>bookStatus(@PathVariable Long libraryId, @RequestParam String status){
+        libraryService.bookStatus(libraryId,status);
+        return ResponseEntity.ok().build();
+    }
+
     @DeleteMapping("/remove/{libraryId}")
     public ResponseEntity<?>removeBook(@PathVariable Integer libraryId,HttpServletRequest httpReq){
         Integer memberId =(Integer) HttpUtils.getSessionValue(httpReq, AccountConstants.MEMBER_ID_NAME);

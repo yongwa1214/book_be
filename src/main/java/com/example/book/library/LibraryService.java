@@ -94,6 +94,9 @@ public class LibraryService {
         return libraryMapper.myBookItem(libraryId);
     }
 
+    public void bookStatus (Long libraryId, String status){
+        libraryMapper.bookStatus(libraryId,status);
+    }
     public void bookUpdate(LibraryReq req){
         libraryMapper.bookUpdate(req);
     }

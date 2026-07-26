@@ -21,6 +21,12 @@
         WHERE library_id = #{libraryId}
     </update>
 
+    <update id="bookStatus">
+        update library
+        SET status = #{status}
+        WHERE library_id = #{libraryId}
+    </update>
+
     <select id="myBookList">
         SELECT library_id, book_id, title, thumbnail, status
         FROM library
@@ -29,7 +35,7 @@
 
     <select id ="myBookItem">
         SELECT library_id, book_id, title,authors,publisher
-                ,published_date,thumbnail,summery
+                ,published_date,thumbnail,summary
                 ,total_page, read_page,status
         FROM library
         WHERE library_id = #{libraryId}
@@ -39,5 +45,7 @@
         DELETE FROM library
         WHERE library_id = #{libraryId} AND member_id =#{memberId}
     </delete>
+
+
 
 </mapper>

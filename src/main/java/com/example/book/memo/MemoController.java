@@ -21,8 +21,8 @@ public class MemoController {
     }
 
     @GetMapping("{libraryId}/memo/list")
-    public ResponseEntity<?> myMemoList(@PathVariable Integer libraryId){
-        return ResponseEntity.ok(memoService.myMemoList(libraryId));
+    public ResponseEntity<?> myMemoList(@PathVariable Integer libraryId, @RequestParam String type){
+        return ResponseEntity.ok(memoService.myMemoList(libraryId, type));
     }
 
     @GetMapping("/memo/{memoId}")
