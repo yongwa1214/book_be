@@ -21,9 +21,17 @@
         WHERE library_id = #{libraryId}
     </update>
 
+    <update id="lastBookUpdate">
+        UPDATE library
+        SET updated_at = NOW()
+        WHERE library_id = #{libraryId}
+    </update>
+
+
     <update id="bookStatus">
         update library
         SET status = #{status}
+            ,read_page = total_page
         WHERE library_id = #{libraryId}
     </update>
 
@@ -31,6 +39,17 @@
         SELECT library_id, book_id, title, thumbnail, status
         FROM library
         WHERE member_id = #{memberId}
+<!--        <if  test="keyword != null and keyword != ''">-->
+<!--            ,status = #{keyword}-->
+<!--        </if>-->
+    </select>
+
+    <select id="myBookListType">
+        SELECT library_id, book_id, title, thumbnail, status
+        FROM library
+        WHERE member_id = #{memberId}
+              AND status = #{status}
+
     </select>
 
     <select id ="myBookItem">
@@ -40,6 +59,23 @@
         FROM library
         WHERE library_id = #{libraryId}
     </select>
+
+    <select id="lastReadBook">
+        SELECT library_id, title, thumbnail
+        FROM library
+        WHERE member_id = #{memberId}
+        ORDER BY updated_at DESC
+        LIMIT 1
+    </select>
+
+    <select id="monthFinishBook">
+        SELECT library_id, title, thumbnail
+        FROM library
+        WHERE member_id = #{memberId}
+              AND status = 'finish'
+              AND updated_at >= #{start} AND updated_at &lt; #{end}
+    </select>
+
 
     <delete id="deleteBook">
         DELETE FROM library

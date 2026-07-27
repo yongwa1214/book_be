@@ -2,6 +2,7 @@ package com.example.book.memo;
 
 
 import com.example.book.library.model.LibraryReq;
+import com.example.book.library.model.userInfo.LastReadBookRes;
 import com.example.book.memo.model.MemoDetailRes;
 import com.example.book.memo.model.MemoListRes;
 import com.example.book.memo.model.MemoReq;
@@ -26,6 +27,7 @@ public class MemoService {
     public MemoDetailRes memoDetail (Integer memoId){
         return memoMapper.memoDetail(memoId);
     }
+
 
     public void updateMemo(MemoReq req){
         memoMapper.updateMemo(req);

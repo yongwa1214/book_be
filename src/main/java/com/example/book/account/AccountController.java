@@ -40,6 +40,8 @@ public class AccountController {
         }
         //세션 처리
         HttpUtils.setSession(httpReq, AccountConstants.MEMBER_ID_NAME, result.getMemberId());
+       // HttpUtils.setSession(httpReq, AccountConstants.MEMBER_NAME, result.getName());
+
 
         return ResponseEntity.ok(result);
     }
@@ -49,6 +51,7 @@ public class AccountController {
 
         Integer id =(Integer)HttpUtils.getSessionValue(httpReq, AccountConstants.MEMBER_ID_NAME);
         log.info("id:{}",id);
+        //String username = (String)HttpUtils.getSessionValue(httpReq, AccountConstants.MEMBER_NAME);
         return ResponseEntity.ok(id);
     }
 

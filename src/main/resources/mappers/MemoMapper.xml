@@ -14,7 +14,6 @@
         SELECT memo_id, library_id, title, type, created_at, updated_at, content
         FROM memo
         WHERE library_id = #{libraryId} AND type= #{type}
-        ORDER BY type, memo_id DESC
     </select>
 
     <select id="memoDetail">

@@ -20,7 +20,7 @@ public class AccountService {
         AccountJoinReq changedReq = AccountJoinReq.builder()
                 .loginId(req.getLoginId())
                 .loginPw(hashedPw)
-                .name(req.getName())
+                .name(req.getLoginId())
                 .build();
 
         return accountMapper.save(changedReq);

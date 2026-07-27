@@ -5,10 +5,14 @@ import com.example.book.common.constant.Constants;
 import com.example.book.library.model.*;
 import com.example.book.library.model.googleBook.GoogleBooksRes;
 import com.example.book.library.model.googleBook.VolumeInfo;
+import com.example.book.library.model.userInfo.LastReadBookRes;
+import com.example.book.library.model.userInfo.MonthBookList;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
+import java.time.LocalDate;
+import java.time.Month;
 import java.util.List;
 
 
@@ -90,8 +94,30 @@ public class LibraryService {
         return libraryMapper.myBookList(memberId);
     }
 
+    public List<LibraryRes> myBookListType (Integer memberId, String status){
+        return libraryMapper.myBookListType(memberId, status);
+    }
+
+
+    public LastReadBookRes lastReadBook(Integer memoId){
+        return libraryMapper.lastReadBook(memoId);
+    }
+
+
     public LibraryItemRes myBookItem (Long libraryId){
         return libraryMapper.myBookItem(libraryId);
+    }
+
+    public List<LastReadBookRes> monthFinishBook(Integer memberId){
+        LocalDate startDate = LocalDate.now().withDayOfMonth(1);
+        LocalDate endDate = startDate.plusMonths(1);
+
+        MonthBookList req = MonthBookList.builder()
+                .memberId(memberId)
+                .start(startDate)
+                .end(endDate)
+                .build();
+        return libraryMapper.monthFinishBook(req);
     }
 
     public void bookStatus (Long libraryId, String status){
@@ -101,6 +127,9 @@ public class LibraryService {
         libraryMapper.bookUpdate(req);
     }
 
+    public void lastBookUpdate(Integer libraryId){
+        libraryMapper.lastBookUpdate(libraryId);
+    }
     public void deleteBook(Integer libraryId, Integer memberId){
         libraryMapper.deleteBook(libraryId, memberId);
     }
