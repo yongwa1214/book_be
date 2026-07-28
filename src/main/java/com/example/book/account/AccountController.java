@@ -31,6 +31,8 @@ public class AccountController {
         return ResponseEntity.ok(result); // state: 200
     }
 
+
+
     @PostMapping("/login") //ok
     public ResponseEntity<?> login(HttpServletRequest httpReq, @RequestBody AccountLoginReq req){
         AccountLoginRes result = accountService.login(req);
@@ -43,6 +45,12 @@ public class AccountController {
        // HttpUtils.setSession(httpReq, AccountConstants.MEMBER_NAME, result.getName());
 
 
+        return ResponseEntity.ok(result);
+    }
+
+    @GetMapping("/id/check")
+    public ResponseEntity<?> sameId (@RequestParam String id){
+        int result = accountService.sameId(id);
         return ResponseEntity.ok(result);
     }
 

@@ -15,5 +15,10 @@
         WHERE login_id = #{loginId}
     </select>
 
+    <select id="sameId">
+        SELECT count(*)
+        FROM members
+        WHERE login_id = #{loginId}
+    </select>
 
 </mapper>

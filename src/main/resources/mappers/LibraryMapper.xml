@@ -39,6 +39,7 @@
         SELECT library_id, book_id, title, thumbnail, status
         FROM library
         WHERE member_id = #{memberId}
+        ORDER BY library_id DESC , status
 <!--        <if  test="keyword != null and keyword != ''">-->
 <!--            ,status = #{keyword}-->
 <!--        </if>-->

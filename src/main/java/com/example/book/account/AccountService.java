@@ -26,6 +26,10 @@ public class AccountService {
         return accountMapper.save(changedReq);
     }
 
+    public int sameId (String loginId){
+        return accountMapper.sameId(loginId);
+    }
+
     public AccountLoginRes login(AccountLoginReq req){
         AccountLoginRes res = accountMapper.findByLoginId(req);
         // // 아이디가 없거나 비밀번호가 다르다면
